@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+body {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  background: linear-gradient(
+    90deg,
+    rgba(180, 58, 169, 1) 0%,
+    rgba(253, 29, 173, 1) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.container {
+  margin: 60px auto 0 auto;
+  max-width: 300px;
+  min-height: 500px;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  position: relative;
+}
+
+#date {
+  font-style: oblique;
+}
+
+.filters {
+  background-color: transparent;
+  border: 2px solid purple;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0;
+  padding: 0 8px;
+  outline: none;
+}
+
+.last {
+  border-right: 2px solid purple;
+}
+
+.filters:hover {
+  color: purple;
+}
+
+#form {
+  margin: 30px auto;
+}
+
+.todolist {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.todo {
+  font-size: 1rem;
+  padding: 8px;
+  /* position: relative; */
+  margin: 2px 10px;
+}
+
+.task {
+  color: black;
+  font-style: italic;
+  /* position: absolute; */
+  /* left: 10px; */
+  word-wrap: break-word;
+}
+
+h1 {
+  display: inline;
+  position: relative;
+  font: 60px Helvetica, Sans-Serif;
+  letter-spacing: -5px;
+  color: rgba(0, 0, 255, 0.5);
+}
+
+h1:after {
+  content: "To Do List";
+  position: absolute;
+  left: -3px;
+  top: 5px;
+  color: rgba(255, 0, 0, 0.5);
+}
+
+.farspan {
+  position: absolute;
+  right: 5px;
+}
+
+#addTask {
+  margin-bottom: 20px;
+  padding: 6px 5px;
+  width: 90%;
+  margin: 10px 0;
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
+}
+
+#add {
+  border-radius: 30px;
+  font-size: 50px;
+  padding: 0 13px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  left: 140px;
+  margin: 0 auto;
+  bottom: -25px;
+  outline: none;
+  background-color: rgba(180, 58, 169, 0.8);
+  border: 2px dashed purple;
+}
+
+#add:hover {
+  transform: scale(1.1);
+}
+
+#doneAt {
+  margin: 0;
+}
