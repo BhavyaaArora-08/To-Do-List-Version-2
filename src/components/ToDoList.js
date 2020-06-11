@@ -1,27 +1,34 @@
 import React from "react";
 import ToDoItem from "./ToDoItem";
+import { connect } from "react-redux";
+import selectTodos from "../redux/selectors/selectTodos";
 
 const ToDoList = (props) => {
   return (
     <div className="todolist">
-      {(props.todos &&
-        props.todos
-          .filter(
-            (todo) =>
-              props.filter === "all" ||
-              (props.filter === "todo" && !todo.checked) ||
-              (props.filter === "done" && todo.checked)
-          )
-          .map((filteredTodo) => (
-            <ToDoItem
-              handleRemoveTodo={props.handleRemoveTodo}
-              key={filteredTodo.id}
-              todo={filteredTodo}
-              handleCheck={props.handleCheck}
-            />
-          ))) || <h1>No Todos</h1>}
+      {(props.todos.length !== 0 &&
+        props.todos.map((todo) => <ToDoItem key={todo.id} todo={todo} />)) || (
+        <p
+          style={{
+            height: "100%",
+            textAlign: "center",
+            padding: "10px",
+            fontStyle: "italic",
+            color: "white",
+            backgroundColor: "rgba(253, 29, 173, 0.9)",
+          }}
+        >
+          Add todos to get started!
+        </p>
+      )}
     </div>
   );
 };
 
-export default ToDoList;
+const mapStateToProps = (state) => {
+  return {
+    todos: selectTodos(state.todos, state.filter),
+  };
+};
+
+export default connect(mapStateToProps)(ToDoList);

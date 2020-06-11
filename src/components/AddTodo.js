@@ -1,6 +1,8 @@
 import React from "react";
 import moment from "moment";
+import { connect } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
+import { addTodo } from "../redux/actions/todos";
 
 const AddTodo = (props) => {
   const onSubmit = (e) => {
@@ -12,7 +14,9 @@ const AddTodo = (props) => {
       date: moment().format("dddd, DD MMMM YYYY"),
       id: uuidv4(),
     };
-    props.addTodoHandler(val);
+    // console.log(val);
+    // props.addTodoHandler(val);
+    props.dispatch(addTodo(val));
     e.target.task.value = "";
   };
 
@@ -35,4 +39,4 @@ const AddTodo = (props) => {
   );
 };
 
-export default AddTodo;
+export default connect()(AddTodo);

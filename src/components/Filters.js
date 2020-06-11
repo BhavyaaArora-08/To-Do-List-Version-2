@@ -1,11 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
+import setFilter from "../redux/actions/filters";
 
 const Filters = (props) => {
   const handleClick = (e) => {
     e.preventDefault();
     const filter = e.target.value;
-    console.log(filter);
-    props.handleSetFilter(filter);
+    // props.handleSetFilter(filter);
+    props.dispatch(setFilter(filter));
   };
 
   const styles1 =
@@ -44,4 +46,10 @@ const Filters = (props) => {
   );
 };
 
-export default Filters;
+const mapStateToProps = (state, props) => {
+  return {
+    filter: state.filter,
+  };
+};
+
+export default connect(mapStateToProps)(Filters);

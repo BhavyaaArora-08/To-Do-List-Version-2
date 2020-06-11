@@ -1,15 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
+import { removeTodo, editTodo } from "../redux/actions/todos";
 
 const ToDoItem = (props) => {
   const handleRemoveTodo = (e) => {
     e.preventDefault();
-    console.log(e.target);
-    props.handleRemoveTodo(props.todo.id);
+    // props.handleRemoveTodo(props.todo.id);
+    props.dispatch(removeTodo(props.todo.id));
   };
 
-  const onClick = (e) => {
-    console.log(e.target);
-    props.handleCheck(props.todo.id);
+  const onClick = () => {
+    // props.handleCheck(props.todo.id);
+    const updates = { checked: !props.todo.checked };
+    console.log(updates);
+    props.dispatch(editTodo(props.todo.id, updates));
   };
 
   const styles =
@@ -54,4 +58,4 @@ const ToDoItem = (props) => {
   );
 };
 
-export default ToDoItem;
+export default connect()(ToDoItem);
